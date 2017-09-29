@@ -42,7 +42,8 @@ function renderCar(carSprite) {
 function moveCar(newCar, $car) {
   const moveCar = setInterval(function () {
     if (newCar.location[0] === 900 || newCar.location[1] === 900 || newCar.location[0] === 0 || newCar.location[1] === 0) {
-      gameOver($car, movedCar)
+      const $seconds = document.querySelector('.seconds')
+      gameOver($car, movedCar, timer, $seconds)
     }
     newCar.move()
     Object.assign($car.style, {
@@ -53,11 +54,28 @@ function moveCar(newCar, $car) {
   return moveCar
 }
 
-function gameOver($car, id) {
+function startTimer(timer, $seconds) {
+  if (!timer.id) {
+    timer.id = setInterval(function () {
+      timer.seconds++
+      $seconds.textContent = timer.seconds
+    }, 1000)
+    return timer.id
+  }
+}
+
+function clearTimer(timer, $seconds) {
+  clearInterval(timer.id)
+  timer.seconds = 0
+  $seconds.textContent = timer.seconds
+}
+
+function gameOver($car, id, timer, $seconds) {
   stopCar(movedCar)
   document.querySelector('.game').removeChild($car)
   newCar = null
   $createButton.setAttribute('class', 'button')
+  clearTimer(timer, $seconds)
 }
 
 function stopCar(id) {
@@ -103,6 +121,10 @@ $clearButton.addEventListener('click', function () {
   }
 })
 
+let timer = {
+  id: null,
+  seconds: 0
+}
 let movedCar = null
 document.body.addEventListener('keypress', function (e) {
   const $car = document.querySelector('.car')
@@ -110,11 +132,17 @@ document.body.addEventListener('keypress', function (e) {
     case 'Enter':
       if (document.querySelector('img')) {
         const $car = document.querySelector('img')
-        movedCar = moveCar(newCar, $car)
+        if (!movedCar) {
+          movedCar = moveCar(newCar, $car)
+          timer.id = startTimer(timer, document.querySelector('.seconds'))
+        }
       }
       break
     case 'b':
       stopCar(movedCar)
+      clearInterval(timer.id)
+      movedCar = null
+      timer.id = null
       break
     case 'w':
       turnUp($car, newCar)

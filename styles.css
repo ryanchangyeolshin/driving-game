@@ -4,6 +4,10 @@
 }
 
 body {
+  /* Typography */
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+
   /* Visuals */
   background-color: #8b91ac;
 }
@@ -13,9 +17,7 @@ h1 {
   margin: 50px 0;
 
   /* Typography */
-  font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
-  text-align: center;
 }
 
 p {
@@ -23,9 +25,12 @@ p {
   margin-bottom: 30px;
 
   /* Typography */
-  font-family: 'Josefin Sans', sans-serif;
   font-weight: 400;
-  text-align: center;
+}
+
+.timer {
+  /* Box Model */
+  margin-top: 100px;
 }
 
 .game {
@@ -35,7 +40,7 @@ p {
   height: 1000px;
 
   /* Box Model */
-  margin: 50px auto;
+  margin: 30px auto;
 
   /* Visuals */
   background-image: url('https://orig00.deviantart.net/0856/f/2015/019/9/7/windows_10_design__concept____desktop_by_bannax1994-d8eisk2.png');
