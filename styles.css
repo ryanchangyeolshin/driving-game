@@ -35,10 +35,28 @@ p {
 .car {
   /* Positioning */
   position: absolute;
-  top: 500px;
+  bottom: 500px;
   left: 500px;
   width: 100px;
   height: 100px;
+}
+
+.down {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.up {
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.left {
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .buttons {
