@@ -3,6 +3,22 @@
   margin: 0;
 }
 
+h1 {
+  /* Box Model */
+  margin-bottom: 10px;
+
+  /* Typography */
+  text-align: center;
+}
+
+p {
+  /* Box Model */
+  margin-bottom: 30px;
+
+  /* Typography */
+  text-align: center;
+}
+
 .game {
   /* Positioning */
   position: relative;
