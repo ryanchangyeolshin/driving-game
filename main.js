@@ -44,7 +44,7 @@ function moveCar(newCar, $car) {
     newCar.move()
     Object.assign($car.style, {
       left: `${newCar.location[0]}px`,
-      top: `${newCar.location[1]}px`
+      bottom: `${newCar.location[1]}px`
     })
   }, 16)
   return moveCar
@@ -52,6 +52,26 @@ function moveCar(newCar, $car) {
 
 function stopCar(id) {
   clearInterval(id)
+}
+
+function turnLeft($car, car) {
+  $car.setAttribute('class', 'car left')
+  car.turn('WEST')
+}
+
+function turnUp($car, car) {
+  $car.setAttribute('class', 'car up')
+  car.turn('NORTH')
+}
+
+function turnDown($car, car) {
+  $car.setAttribute('class', 'car down')
+  car.turn('SOUTH')
+}
+
+function turnRight($car, car) {
+  $car.setAttribute('class', 'car')
+  car.turn('EAST')
 }
 
 let newCar = null
@@ -75,6 +95,7 @@ $clearButton.addEventListener('click', function () {
 
 let movedCar = null
 document.body.addEventListener('keypress', function (e) {
+  const $car = document.querySelector('.car')
   switch (e.key) {
     case 'Enter':
       if (document.querySelector('img')) {
@@ -82,8 +103,19 @@ document.body.addEventListener('keypress', function (e) {
         movedCar = moveCar(newCar, $car)
       }
       break
-    case 's':
+    case 'b':
       stopCar(movedCar)
       break
+    case 'w':
+      turnUp($car, newCar)
+      break
+    case 'a':
+      turnLeft($car, newCar)
+      break
+    case 's':
+      turnDown($car, newCar)
+      break
+    case 'd':
+      turnRight($car, newCar)
   }
 })
