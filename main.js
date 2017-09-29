@@ -41,6 +41,9 @@ function renderCar(carSprite) {
 
 function moveCar(newCar, $car) {
   const moveCar = setInterval(function () {
+    if (newCar.location[0] === 900 || newCar.location[1] === 900) {
+      gameOver($car, movedCar)
+    }
     newCar.move()
     Object.assign($car.style, {
       left: `${newCar.location[0]}px`,
@@ -48,6 +51,13 @@ function moveCar(newCar, $car) {
     })
   }, 16)
   return moveCar
+}
+
+function gameOver($car, id) {
+  stopCar(movedCar)
+  document.querySelector('.game').removeChild($car)
+  newCar = null
+  $createButton.setAttribute('class', 'button')
 }
 
 function stopCar(id) {
