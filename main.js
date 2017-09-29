@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 class Car {
-  constructor(direction, speed, location) {
+  constructor(id, direction, speed, location) {
+    this.id = id
     this.direction = direction
     this.speed = speed
     this.location = location
@@ -43,7 +44,7 @@ function moveCar(newCar, $car) {
   const moveCar = setInterval(function () {
     if (newCar.location[0] === 900 || newCar.location[1] === 900 || newCar.location[0] === 0 || newCar.location[1] === 0) {
       const $seconds = document.querySelector('.seconds')
-      gameOver($car, movedCar, timer, $seconds)
+      gameOver($car, newCar.id, timer, $seconds)
     }
     newCar.move()
     Object.assign($car.style, {
@@ -71,7 +72,7 @@ function clearTimer(timer, $seconds) {
 }
 
 function gameOver($car, id, timer, $seconds) {
-  stopCar(movedCar)
+  stopCar(id)
   document.querySelector('.game').removeChild($car)
   newCar = null
   $createButton.setAttribute('class', 'button')
@@ -105,7 +106,7 @@ function turnRight($car, car) {
 let newCar = null
 const $createButton = document.querySelector('#create')
 $createButton.addEventListener('click', function () {
-  newCar = new Car('EAST', 10, [500, 500])
+  newCar = new Car(null, 'EAST', 10, [500, 500])
   const carSprite = 'images/car-sprite.png'
   const $car = renderCar(carSprite)
   document.querySelector('.game').appendChild($car)
@@ -125,23 +126,22 @@ let timer = {
   id: null,
   seconds: 0
 }
-let movedCar = null
 document.body.addEventListener('keypress', function (e) {
   const $car = document.querySelector('.car')
   switch (e.key) {
     case 'Enter':
       if (document.querySelector('img')) {
         const $car = document.querySelector('img')
-        if (!movedCar) {
-          movedCar = moveCar(newCar, $car)
+        if (!newCar.id) {
+          newCar.id = moveCar(newCar, $car)
           timer.id = startTimer(timer, document.querySelector('.seconds'))
         }
       }
       break
     case 'b':
-      stopCar(movedCar)
+      stopCar(newCar.id)
       clearInterval(timer.id)
-      movedCar = null
+      newCar.id = null
       timer.id = null
       break
     case 'w':
