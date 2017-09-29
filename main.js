@@ -41,7 +41,7 @@ function renderCar(carSprite) {
 
 function moveCar(newCar, $car) {
   const moveCar = setInterval(function () {
-    if (newCar.location[0] === 900 || newCar.location[1] === 900) {
+    if (newCar.location[0] === 900 || newCar.location[1] === 900 || newCar.location[0] === 0 || newCar.location[1] === 0) {
       gameOver($car, movedCar)
     }
     newCar.move()
