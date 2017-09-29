@@ -44,7 +44,7 @@ function moveCar(newCar, $car) {
     newCar.move()
     Object.assign($car.style, {
       left: `${newCar.location[0]}px`,
-      top: `${newCar.location[1]}px`
+      bottom: `${newCar.location[1]}px`
     })
   }, 16)
   return moveCar
@@ -75,6 +75,7 @@ $clearButton.addEventListener('click', function () {
 
 let movedCar = null
 document.body.addEventListener('keypress', function (e) {
+  const $car = document.querySelector('.car')
   switch (e.key) {
     case 'Enter':
       if (document.querySelector('img')) {
