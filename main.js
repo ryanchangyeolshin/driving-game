@@ -82,7 +82,7 @@ document.body.addEventListener('keypress', function (e) {
         movedCar = moveCar(newCar, $car)
       }
       break
-    case 's':
+    case 'b':
       stopCar(movedCar)
       break
   }
