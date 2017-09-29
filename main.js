@@ -39,8 +39,25 @@ function renderCar(carSprite) {
   return $car
 }
 
+function moveCar(newCar, $car) {
+  const moveCar = setInterval(function () {
+    newCar.move()
+    Object.assign($car.style, {
+      left: `${newCar.location[0]}px`,
+      top: `${newCar.location[1]}px`
+    })
+  }, 16)
+  return moveCar
+}
+
+function stopCar(id) {
+  clearInterval(id)
+}
+
+let newCar = null
 const $createButton = document.querySelector('#create')
 $createButton.addEventListener('click', function () {
+  newCar = new Car('EAST', 10, [500, 500])
   const carSprite = 'images/car-sprite.png'
   const $car = renderCar(carSprite)
   document.querySelector('.game').appendChild($car)
@@ -56,23 +73,17 @@ $clearButton.addEventListener('click', function () {
   }
 })
 
+let movedCar = null
 document.body.addEventListener('keypress', function (e) {
   switch (e.key) {
     case 'Enter':
       if (document.querySelector('img')) {
-        const newCar = new Car('EAST', 1, [500, 500])
         const $car = document.querySelector('img')
-        let { top, left } = $car.style
-        setInterval(function () {
-          newCar.move()
-          Object.assign($car.style, {
-            left: `${newCar.location[0]}px`,
-            top: `${newCar.location[1]}px`
-          })
-        }, 16)
+        movedCar = moveCar(newCar, $car)
       }
       break
-    default:
-
+    case 's':
+      stopCar(movedCar)
+      break
   }
 })
