@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1 {
+  /* Box Model */
+  margin-bottom: 10px;
+
+  /* Typography */
+  text-align: center;
+}
+
+p {
+  /* Box Model */
+  margin-bottom: 30px;
+
+  /* Typography */
+  text-align: center;
+}
+
+.game {
+  /* Positioning */
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+
+  /* Box Model */
+  margin: 50px auto;
+
+  /* Visuals */
+  background-color: grey;
+}
+
+.car {
+  /* Positioning */
+  position: absolute;
+  top: 500px;
+  left: 500px;
+  width: 100px;
+  height: 100px;
+}
+
+.buttons {
+  /* Typography */
+  text-align: center;
+}
+
+.button {
+  /* Box Model */
+  border-radius: 10px;
+  padding: 10px 30px;
+  margin-right: 5px;
+
+  /* Visuals */
+  color: white;
+}
+
+#create {
+  /* Visuals */
+  background-color: green;
+}
+
+#clear {
+  /* Visuals */
+  background-color: red;
+}
+
+.hidden {
+  /* Box Model */
+  display: none;
+}
