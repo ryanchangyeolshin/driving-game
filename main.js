@@ -69,7 +69,6 @@ document.body.addEventListener('keypress', function (e) {
             left: `${newCar.location[0]}px`,
             top: `${newCar.location[1]}px`
           })
-          console.log(left, top)
         }, 16)
       }
       break
