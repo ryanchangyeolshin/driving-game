@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  /* Typography */
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+
+  /* Visuals */
+  background-color: #8b91ac;
+}
+
+.container {
+  /* Positioning */
+  width: 1500px;
+
+  /* Box Model */
+  margin: 0 auto;
+
+  /* Visuals */
+  background-color: #b28600;
+}
+
+.header {
+  /* Box Model */
+  padding: 50px;
+}
+
+h1 {
+  /* Box Model */
+  margin: 50px 0;
+
+  /* Typography */
+  font-size: 50px;
+  font-weight: 700;
+}
+
+p {
+  /* Box Model */
+  margin-bottom: 30px;
+
+  /* Typography */
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.timer {
+  /* Box Model */
+  margin: 60px auto;
+
+  /* Typography */
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.game {
+  /* Positioning */
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+
+  /* Box Model */
+  margin: 30px auto;
+
+  /* Visuals */
+  background-image: url('https://orig00.deviantart.net/0856/f/2015/019/9/7/windows_10_design__concept____desktop_by_bannax1994-d8eisk2.png');
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.car {
+  /* Positioning */
+  position: absolute;
+  bottom: 500px;
+  left: 500px;
+  width: 100px;
+  height: 100px;
+}
+
+.down {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.up {
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.left {
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.buttons {
+  /* Box Model */
+  margin-bottom: 50px;
+  padding: 50px;
+
+  /* Typography */
+  text-align: center;
+}
+
+.button {
+  /* Box Model */
+  border: none;
+  border-radius: 10px;
+  padding: 30px 90px;
+  margin-right: 5px;
+
+  /* Typography */
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+
+  /* Visuals */
+  color: white;
+}
+
+#create {
+  /* Visuals */
+  background-color: green;
+}
+
+#clear {
+  /* Visuals */
+  background-color: red;
+}
+
+.hidden {
+  /* Box Model */
+  display: none;
+}
