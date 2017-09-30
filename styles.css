@@ -9,7 +9,7 @@ body {
   text-align: center;
 
   /* Visuals */
-  background-color: #8b91ac;
+  background-color: #f4f5f4;
 }
 
 .container {
@@ -17,10 +17,16 @@ body {
   width: 1500px;
 
   /* Box Model */
-  margin: 0 auto;
+  margin: 100px auto;
 
   /* Visuals */
-  background-color: #b28600;
+  background-color: #5e9f89;
+
+  /* Misc */
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  animation: fadeIn 5s;
 }
 
 .header {
@@ -136,4 +142,63 @@ p {
 .hidden {
   /* Box Model */
   display: none;
+}
+
+.gameover-screen {
+  /* Positioning */
+  width: 100%;
+  height: 100%;
+
+  /* Box Model */
+  margin: 500px auto;
+  padding: 200px;
+
+  /* Visuals */
+  background-color: black;
+  color: white;
+
+  /* Misc */
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  animation: fadeIn 5s;
+}
+
+.gameover-header {
+  /* Typography */
+  font-size: 200px;
+  font-weight: 700;
+  letter-spacing: 50px;
+}
+
+.result {
+  /* Box Model */
+  margin: 100px auto;
+
+  /* Typography */
+  font-size: 100px;
+  font-weight: 700;
+  letter-spacing: 50px;
+
+  /* Misc */
+  -webkit-animation: fadeIn 6s;
+  -moz-animation: fadeIn 6s;
+  -o-animation: fadeIn 6s;
+  animation: fadeIn 6s;
+}
+
+#continue {
+  /* Visuals */
+  background-color: green;
+
+  /* Misc */
+  -webkit-animation: fadeIn 7s;
+  -moz-animation: fadeIn 7s;
+  -o-animation: fadeIn 7s;
+  animation: fadeIn 7s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
